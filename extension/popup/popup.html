@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainwave Chat Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Brainwave</h1>
+      <div id="statusIndicator" class="status-indicator"></div>
+    </div>
+    
+    <div class="record-control">
+      <button id="recordButton" class="record-button">Start Recording</button>
+      <div id="timer" class="timer">00:00</div>
+    </div>
+    
+    <div class="transcript-container">
+      <textarea id="transcriptText" class="transcript-text" placeholder="Transcription will appear here..." readonly></textarea>
+      <button id="copyButton" class="copy-button">Copy</button>
+    </div>
+    
+    <div class="options">
+      <div class="option-item">
+        <label for="autoFillToggle">Auto-fill text fields:</label>
+        <label class="switch">
+          <input type="checkbox" id="autoFillToggle" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+      
+      <div class="option-item">
+        <label for="serverUrl">Server URL:</label>
+        <input type="text" id="serverUrl" class="server-url-input" placeholder="ws://localhost:3005/api/v1/ws">
+      </div>
+    </div>
+    
+    <div class="footer">
+      <button id="settingsButton" class="settings-button">Save Settings</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

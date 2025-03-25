@@ -5,7 +5,8 @@
 1. [Introduction](#introduction)
 2. [Deployment](#deployment)
 3. [Code Structure & Architecture](#code-structure--architecture)
-4. [Testing](#testing)
+4. [Chrome Extension](#chrome-extension)
+5. [Testing](#testing)
 
 ---
 
@@ -190,6 +191,39 @@ Comprehensive logging is integrated throughout the backend components to monitor
 - **Connection Status:** Tracks WebSocket connections and disconnections.
 - **Data Transmission:** Logs the size and status of audio chunks being processed and sent.
 - **Error Reporting:** Captures and logs any errors or exceptions, facilitating easier debugging and maintenance.
+
+---
+
+## Chrome Extension
+
+Brainwave now includes a Chrome extension that allows you to use the speech recognition capabilities directly in any web page. This is particularly useful for quickly inputting text into chat boxes, forms, or any text field on the web.
+
+### Features
+
+- Real-time speech recognition with direct text injection into active text fields
+- Works with standard input fields, textareas, and contenteditable elements (like in Google Docs, chat apps, etc.)
+- Easy toggle recording with visual status indicators
+- Configurable server URL for connecting to your Brainwave backend
+- Settings persistence across browser sessions
+
+### Installation
+
+1. Start the Brainwave server (follow instructions in the [Deployment](#deployment) section)
+2. Install the extension in Chrome:
+   - Open Chrome and navigate to `chrome://extensions/`
+   - Enable "Developer mode" using the toggle in the top-right corner
+   - Click "Load unpacked" and select the `extension` directory from this repository
+   - The Brainwave extension icon should appear in your browser toolbar
+
+### Usage
+
+1. Click the Brainwave icon in your toolbar to open the popup
+2. Focus on any text input field where you want to insert text
+3. Click "Start Recording" and begin speaking
+4. The transcribed text will be automatically inserted into the focused field
+5. Click "Stop Recording" when finished
+
+For more details, see the [extension README](extension/README.md).
 
 ---
 

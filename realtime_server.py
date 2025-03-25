@@ -5,6 +5,7 @@ import numpy as np
 from fastapi import FastAPI, WebSocket, Request, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware  # Add CORS middleware
 import uvicorn
 import logging
 from prompts import PROMPTS
@@ -46,6 +47,15 @@ class AskAIResponse(BaseModel):
     answer: str = Field(..., description="AI's answer to the question.")
 
 app = FastAPI()
+
+# Add CORS middleware to allow requests from the Chrome extension
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
+)
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_API_KEY:
